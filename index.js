@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -86,6 +88,10 @@ app.post("/bookroom/:id", (req, res) => {
     res.send(`The room ${id} is already booked`);
   }
 });
+
+app.get("/", (req,res) => {
+  res.send("Node APP is running fine")
+})
 
 app.get("/rooms" , (req,res) =>{
   res.send(rooms);
